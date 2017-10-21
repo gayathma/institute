@@ -1,0 +1,16 @@
+{
+    "name": "Instructors",
+    "alias": "instructors",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Instructors\\Providers\\InstructorsServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}
