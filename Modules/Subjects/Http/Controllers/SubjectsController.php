@@ -5,6 +5,8 @@ namespace Modules\Subjects\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+use Modules\Subjects\Http\Requests\CreateSubjectRequest;
+use Modules\Subjects\Http\Requests\UpdateSubjectRequest;
 use Modules\Subjects\Contracts\SubjectsRepositoryContract as SubjectsRepository;
 use View;
 
@@ -36,7 +38,9 @@ class SubjectsController extends Controller
      */
     public function create()
     {
-        return View::make('subjects::edit');
+        return View::make('subjects::edit', [
+                'result' => null
+            ]);
     }
 
     /**
@@ -68,7 +72,7 @@ class SubjectsController extends Controller
     public function edit(Request $request)
     {
         return view('subjects::edit',[
-            'result' => $this->subjectRepository->find($request::get('id'))
+            'result' => $this->subjectRepository->find($request->get('id'))
         ]);
     }
 
