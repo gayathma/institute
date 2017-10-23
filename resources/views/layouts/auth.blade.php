@@ -12,7 +12,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
 </head>
 <body>
     <div id="app">
@@ -72,23 +71,7 @@
             </div>
         </nav>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-2 sidebar">
-                  <ul class="nav nav-sidebar">
-                    <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-                    <li><a href="/subjects">Subjects</a></li>
-                    <li><a href="/classes">Classes</a></li>
-                    <li><a href="#">Instructors</a></li>
-                    <li><a href="#">Students</a></li>
-                  </ul>
-                </div>
-
-                <div class="col-md-10">
-                    @yield('content')
-                </div>
-            </div>
-        </div>
+        @yield('content')
     </div>
 
     <!-- Scripts -->

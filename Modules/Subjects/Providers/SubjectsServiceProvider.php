@@ -24,8 +24,6 @@ class SubjectsServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
-        $this->registerFactories();
-        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
     }
 
     /**
@@ -35,7 +33,10 @@ class SubjectsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+            'Modules\Subjects\Contracts\SubjectsRepositoryContract', 
+            'Modules\Subjects\Repositories\Eloquent\SubjectsRepository'
+        );
     }
 
     /**

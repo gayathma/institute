@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "26d03e91f97098411c7d30fa3c094bfc",
-    "content-hash": "1699d783306624dda0fd68d8e58a0268",
+    "hash": "5660e1e03858f128083dfc9986aa3227",
+    "content-hash": "533adb2a88e3257e5a928a876d107b5b",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1055,6 +1055,79 @@
                 "uuid"
             ],
             "time": "2017-09-22 20:46:04"
+        },
+        {
+            "name": "rinvex/repository",
+            "version": "v2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rinvex/repository.git",
+                "reference": "f757a4968434f8a39481e6ba88afe480f1d7f8f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rinvex/repository/zipball/f757a4968434f8a39481e6ba88afe480f1d7f8f0",
+                "reference": "f757a4968434f8a39481e6ba88afe480f1d7f8f0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/container": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
+                "illuminate/contracts": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
+                "illuminate/database": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
+                "illuminate/events": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
+                "illuminate/support": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
+                "php": ">=5.5.9"
+            },
+            "suggest": {
+                "illuminate/pagination": "Required to paginate the result set."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rinvex\\Repository\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rinvex LLC",
+                    "email": "help@rinvex.com",
+                    "homepage": "https://rinvex.com"
+                },
+                {
+                    "name": "Abdelrahman Omran",
+                    "email": "me@omranic.com",
+                    "homepage": "https://omranic.com",
+                    "role": "Project Lead"
+                },
+                {
+                    "name": "The Generous PHP Community",
+                    "homepage": "https://github.com/rinvex/repository/contributors"
+                }
+            ],
+            "description": "Rinvex Repository is a simple, intuitive, and smart implementation of Active Repository with extremely flexible & granular caching system for Laravel, used to abstract the data layer, making applications more flexible to maintain.",
+            "homepage": "https://rinvex.com/marketplace/rinvex-repository/",
+            "keywords": [
+                "cache",
+                "contract",
+                "eloquent",
+                "granular",
+                "interface",
+                "intuitive",
+                "laravel",
+                "pattern",
+                "repository",
+                "rinvex"
+            ],
+            "time": "2017-01-27 03:12:39"
         },
         {
             "name": "swiftmailer/swiftmailer",
