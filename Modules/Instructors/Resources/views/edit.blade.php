@@ -79,6 +79,23 @@
                       <input type="text" class="form-control" id="phone" name="phone" value="<?php echo (!is_null($result) ? $result->phone : ''); ?>" placeholder="Contact No..." required data-parsley-length="[10, 10]" data-parsley-type="integer">
                   </div>
               </div>
+              <div class="col-md-12 form-group">
+                  <label class="col-md-2 col-sm-3 control-label">Subjects</label>
+                  <div class="col-md-10">
+                    <div class="col-md-12 form-group">
+                      <?php foreach ($subjects as $subject) :?>
+                      <div class="col-md-4">
+                        <div class="checkbox checkbox-primary">
+                          <label>
+                            <input type="checkbox" id="inlineCheckbox110" name="subjects[]" value="<?php echo $subject->id; ?>" class="custom-checkbox" <?php if(in_array($subject->id, $instructor_subjects)):?> checked="true" <?php endif;?>>
+                            <?php echo $subject->code.' - '.$subject->name; ?>
+                          </label>
+                        </div>
+                      </div>
+                    <?php endforeach;?>
+                  </div>
+                  </div>
+              </div>
               <?php echo csrf_field(); ?>
 
               <div class="col-md-12 form-group">

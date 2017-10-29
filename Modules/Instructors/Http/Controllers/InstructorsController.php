@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Modules\Instructors\Http\Requests\CreateInstructorsRequest;
 use Modules\Instructors\Http\Requests\UpdateInstructorsRequest;
 use Modules\Instructors\Contracts\InstructorsRepositoryContract as InstructorsRepository;
+use Modules\Subjects\Entities\Eloquent\Subject;
+use Modules\Instructors\Entities\Eloquent\Instructor;
 use View;
 
 class InstructorsController extends Controller
@@ -39,6 +41,8 @@ class InstructorsController extends Controller
     public function create()
     {
         return View::make('instructors::edit', [
+            'subjects' => Subject::all(),
+            'instructor_subjects' => array(),
             'result' => null
         ]);
     }
@@ -72,6 +76,8 @@ class InstructorsController extends Controller
     public function edit(Request $request)
     {
         return view('instructors::edit',[
+            'subjects' => Subject::all(),
+            'instructor_subjects' => Instructor::find($request->get('id'))->subjects()->pluck('subject_id')->toArray(),
             'result' => $this->instructorsRepository->find($request->get('id'))
         ]);
     }
@@ -83,7 +89,7 @@ class InstructorsController extends Controller
      */
     public function update(UpdateInstructorsRequest $request)
     {
-        $this->instructorsRepository->find($request->get('id'))->update($request->all());
+        $this->instructorsRepository->update($request->get('id'), $request->all());
 
         return 'Instructor Successfully Saved !!';
     }
