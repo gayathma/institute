@@ -27,7 +27,7 @@
       <?php endif ?>
               <div class="col-md-12 form-group">
                   <label class="col-md-2 col-sm-3 control-label">Code<span>*</span></label>
-                  <div class="col-md-8 col-sm-9">
+                  <div class="col-md-4 col-sm-9">
                       <input type="text" class="form-control" id="code" name="code" value="<?php echo (!is_null($result) ? $result->code : ''); ?>" required placeholder="Code...">
                   </div>
               </div>       
@@ -75,7 +75,7 @@
               </div>
               <div class="col-md-12 form-group">
                   <label class="col-md-2 col-sm-3 control-label">Contact No<span>*</span></label>
-                  <div class="col-md-8 col-sm-9">
+                  <div class="col-md-4 col-sm-9">
                       <input type="text" class="form-control" id="phone" name="phone" value="<?php echo (!is_null($result) ? $result->phone : ''); ?>" placeholder="Contact No..." required data-parsley-length="[10, 10]" data-parsley-type="integer">
                   </div>
               </div>

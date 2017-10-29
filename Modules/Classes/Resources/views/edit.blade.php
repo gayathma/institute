@@ -27,7 +27,7 @@
       <?php endif ?>
               <div class="col-md-12 form-group">
                   <label class="col-md-2 col-sm-3 control-label">Code<span>*</span></label>
-                  <div class="col-md-8 col-sm-9">
+                  <div class="col-md-4 col-sm-9">
                       <input type="text" class="form-control" id="code" name="code" value="<?php echo (!is_null($result) ? $result->code : ''); ?>" required placeholder="Code...">
                   </div>
               </div>       
@@ -36,6 +36,10 @@
                   <div class="col-md-8 col-sm-9">
                       <input type="text" class="form-control" id="name" name="name" value="<?php echo (!is_null($result) ? $result->name : ''); ?>" placeholder="Name..." required>
                   </div>
+              </div>
+
+              <div class="col-sm-offset-2 col-md-8">
+                <?php  echo \Modules\Classes\Tables\DetailTable::create(!is_null($result) ? $result : null, 'details', 'table')->render();  ?>                                                
               </div>
               <?php echo csrf_field(); ?>
 
