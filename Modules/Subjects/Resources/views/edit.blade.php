@@ -19,16 +19,16 @@
       </h5>
       <div class="example-box-wrapper">
       <?php if (is_null($result)): ?>
-          <form class="form-horizontal"  role="form" method="POST" action="/subjects/new" id="subjectForm">
+          <form class="form-horizontal"  role="form" method="POST" action="/subjects/new"  id="subjectForm">
       <?php else: ?>
-        <form class="form-horizontal"  role="form" method="POST" action="/subjects/edit" id="subjectForm">
+        <form class="form-horizontal"  role="form" method="POST" action="/subjects/edit"  id="subjectForm">
         <input type="hidden" name="id" value="<?php echo $result->id; ?>">
 
       <?php endif ?>
               <div class="col-md-12 form-group">
                   <label class="col-md-2 col-sm-3 control-label">Code<span>*</span></label>
                   <div class="col-md-8 col-sm-9">
-                      <input type="text" class="form-control" id="code" name="code" value="<?php echo (!is_null($result) ? $result->code : ''); ?>" data-parsley-length="[10, 10]" placeholder="Code...">
+                      <input type="text" class="form-control" id="code" name="code" value="<?php echo (!is_null($result) ? $result->code : ''); ?>" required placeholder="Code...">
                   </div>
               </div>       
               <div class="col-md-12 form-group">
@@ -81,7 +81,6 @@ var f = $('#subjectForm');
     return false;
   });  
 });
-
 
 </script>
 

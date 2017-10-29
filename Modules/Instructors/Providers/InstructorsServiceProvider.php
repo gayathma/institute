@@ -24,8 +24,6 @@ class InstructorsServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
-        $this->registerFactories();
-        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
     }
 
     /**
@@ -35,7 +33,10 @@ class InstructorsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+            'Modules\Instructors\Contracts\InstructorsRepositoryContract',
+            'Modules\Instructors\Repositories\Eloquent\InstructorsRepository'
+        );
     }
 
     /**

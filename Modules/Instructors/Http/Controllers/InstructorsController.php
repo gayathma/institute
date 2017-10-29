@@ -4,39 +4,59 @@ namespace Modules\Instructors\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Controller;
+use Modules\Instructors\Http\Requests\CreateInstructorsRequest;
+use Modules\Instructors\Http\Requests\UpdateInstructorsRequest;
+use Modules\Instructors\Contracts\InstructorsRepositoryContract as InstructorsRepository;
+use View;
 
 class InstructorsController extends Controller
 {
+
+    private $instructorsRepository;
+
+    public function __construct(InstructorsRepository $instructorsRepository)
+    {
+        $this->middleware('auth');
+        $this->instructorsRepository = $instructorsRepository;
+    }
+
     /**
-     * Display a listing of the resource.
+     * Display a listing of the instructors.
      * @return Response
      */
     public function index()
     {
-        return view('instructors::index');
+        return View::make('instructors::index', [
+            'results' => $this->instructorsRepository->paginate(10)
+        ])->render();
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new instructor.
      * @return Response
      */
     public function create()
     {
-        return view('instructors::create');
+        return View::make('instructors::edit', [
+            'result' => null
+        ]);
     }
 
     /**
-     * Store a newly created resource in storage.
-     * @param  Request $request
+     * Store a newly created instructor in storage.
+     * @param  CreateInstructorsRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateInstructorsRequest $request)
     {
+        $this->instructorsRepository->create($request->all());
+
+        return 'Instructor Successfully Created !!';
     }
 
     /**
-     * Show the specified resource.
+     * Show the specified instructor.
      * @return Response
      */
     public function show()
@@ -45,28 +65,37 @@ class InstructorsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     * @return Response
-     */
-    public function edit()
-    {
-        return view('instructors::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Show the form for editing the specified instructor.
      * @param  Request $request
      * @return Response
      */
-    public function update(Request $request)
+    public function edit(Request $request)
     {
+        return view('instructors::edit',[
+            'result' => $this->instructorsRepository->find($request->get('id'))
+        ]);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Update the specified resource in instructor.
+     * @param  UpdateInstructorsRequest $request
      * @return Response
      */
-    public function destroy()
+    public function update(UpdateInstructorsRequest $request)
     {
+        $this->instructorsRepository->find($request->get('id'))->update($request->all());
+
+        return 'Instructor Successfully Saved !!';
+    }
+
+    /**
+     * Remove the specified resource from instructor.
+     * @param  Request $request
+     * @return Response
+     */
+    public function destroy(Request $request)
+    {
+        $this->instructorsRepository->delete($request::get('id'));
+        return 'Instructor Has Been Deleted Successfully !!';
     }
 }

@@ -5,7 +5,6 @@ namespace Modules\Subjects\Repositories\Eloquent;
 use Modules\Subjects\Contracts\SubjectsRepositoryContract;
 use Rinvex\Repository\Repositories\EloquentRepository;
 use Illuminate\Contracts\Container\Container;
-use Modules\Subjects\Entities\Eloquent\Subject;
 
 
 class SubjectsRepository extends EloquentRepository implements SubjectsRepositoryContract

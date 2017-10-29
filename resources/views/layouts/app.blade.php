@@ -13,6 +13,15 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/parsley.css">
+    <link rel="stylesheet" type="text/css" href="/css/jgrowl.css">
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/parsley.js"></script>
+    <script type="text/javascript" src="/js/jgrowl.js"></script>
+    <script src="/js/custom.js"></script>
 </head>
 <body>
     <div id="app">
@@ -78,9 +87,9 @@
                   <ul class="nav nav-sidebar">
                     <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
                     <li><a href="/subjects">Subjects</a></li>
+                    <li><a href="/instructors">Instructors</a></li>
                     <li><a href="/classes">Classes</a></li>
-                    <li><a href="#">Instructors</a></li>
-                    <li><a href="#">Students</a></li>
+                    <li><a href="/students">Students</a></li>
                   </ul>
                 </div>
 
@@ -91,7 +100,6 @@
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    
 </body>
 </html>

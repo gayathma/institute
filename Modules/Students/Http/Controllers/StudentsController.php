@@ -4,39 +4,59 @@ namespace Modules\Students\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Controller;
+use Modules\Students\Http\Requests\CreateStudentRequest;
+use Modules\Students\Http\Requests\UpdateStudentRequest;
+use Modules\Students\Contracts\StudentsRepositoryContract as StudentsRepository;
+use View;
 
 class StudentsController extends Controller
 {
+
+    private $studentRepository;
+
+    public function __construct(StudentsRepository $studentRepository)
+    {
+        $this->middleware('auth');
+        $this->studentRepository = $studentRepository;
+    }
+
     /**
-     * Display a listing of the resource.
+     * Display a listing of the students.
      * @return Response
      */
     public function index()
     {
-        return view('students::index');
+        return View::make('students::index', [
+            'results' => $this->studentRepository->paginate(15)
+        ])->render();
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new student.
      * @return Response
      */
     public function create()
     {
-        return view('students::create');
+        return View::make('students::edit', [
+            'result' => null
+        ]);
     }
 
     /**
-     * Store a newly created resource in storage.
-     * @param  Request $request
+     * Store a newly created student in storage.
+     * @param  CreateStudentRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateStudentRequest $request)
     {
+        $this->studentRepository->create($request->all());
+
+        return 'Student Successfully Created !!';
     }
 
     /**
-     * Show the specified resource.
+     * Show the specified student.
      * @return Response
      */
     public function show()
@@ -45,28 +65,37 @@ class StudentsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     * @return Response
-     */
-    public function edit()
-    {
-        return view('students::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Show the form for editing the specified student.
      * @param  Request $request
      * @return Response
      */
-    public function update(Request $request)
+    public function edit(Request $request)
     {
+        return view('student::edit',[
+            'result' => $this->studentRepository->find($request->get('id'))
+        ]);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Update the specified resource in student.
+     * @param  UpdateStudentRequest $request
      * @return Response
      */
-    public function destroy()
+    public function update(UpdateStudentRequest $request)
     {
+        $this->studentRepository->find($request->get('id'))->update($request->all());
+
+        return 'Student Successfully Saved !!';
+    }
+
+    /**
+     * Remove the specified resource from student.
+     * @param  Request $request
+     * @return Response
+     */
+    public function destroy(Request $request)
+    {
+        $this->studentRepository->delete($request::get('id'));
+        return 'Student Has Been Deleted Successfully !!';
     }
 }

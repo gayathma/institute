@@ -28,7 +28,7 @@ class SubjectsController extends Controller
     public function index()
     {
         return View::make('subjects::index', [
-                'results' => $this->subjectRepository->paginate(15)
+                'results' => $this->subjectRepository->paginate(10)
             ])->render();
     }
 
@@ -78,7 +78,7 @@ class SubjectsController extends Controller
 
     /**
      * Update the specified resource in subject.
-     * @param  Request $request
+     * @param  UpdateSubjectRequest $request
      * @return Response
      */
     public function update(UpdateSubjectRequest $request)
