@@ -87,6 +87,24 @@ var f = $('#classForm');
 });
 
 
+
+$(document).on('change', '.subject', function(e) {
+  var element = $(this);
+  var subject_id = $(this).val();
+
+    $.ajax({
+      url: '/subjects/instructors',
+      data: {
+        subject_id : subject_id
+      },
+      async:true,
+      type: 'get',
+      success: function(response) {
+          element.parent().next().find('select').html(response);
+      }
+    });
+});
+
 </script>
 
 @endsection

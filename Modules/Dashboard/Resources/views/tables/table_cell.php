@@ -27,7 +27,7 @@
     <?php break; 
 
     case 'select': ?>
-        <select class="chosen-select <?php echo isset($params['classes'])?$params['classes']:'';?>" 
+        <select class=" <?php echo isset($params['classes'])?$params['classes']:'';?>" 
             data-placeholder="..." name="<?php echo $name; ?>" <?php echo $validation; ?>>
 
             <option value=""></option>

@@ -12,4 +12,9 @@ class Classes extends Model
 
     protected $fillable = ['name', 'code'];
 
+    public function details()
+    {
+        return $this->hasMany(Detail::class, 'class_id', 'id');
+    }
+
 }

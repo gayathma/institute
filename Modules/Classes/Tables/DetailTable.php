@@ -4,8 +4,10 @@ namespace Modules\Classes\Tables;
 
 use Modules\Classes\Entities\Eloquent\Detail;
 use Modules\Subjects\Entities\Eloquent\Subject;
+use Modules\Instructors\Entities\Eloquent\Instructor;
 use Modules\Dashboard\Lib\EditableTable\TabularContract;
 use Modules\Dashboard\Lib\EditableTable\TableAbstract;
+use DB;
 
 class DetailTable extends TableAbstract implements TabularContract
 {
@@ -46,7 +48,7 @@ class DetailTable extends TableAbstract implements TabularContract
                 'label_class' => '',
                 'field_class' => '',
                 'type' => self::FIELD_SELECT,
-                'options' => [],
+                'options' => Instructor::select('id', DB::raw("concat(first_name, ' ',last_name) as name"))->pluck('name', 'id')->all(),
                 'validation' =>  'required'
             ]
         ];

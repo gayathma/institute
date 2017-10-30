@@ -83,7 +83,7 @@ class ClassesController extends Controller
      */
     public function update(UpdateClassesRequest $request)
     {
-        $this->classRepository->find($request->get('id'))->update($request->all());
+        $this->classRepository->update($request->get('id'), $request->all());
 
         return 'Class Successfully Saved !!';
     }

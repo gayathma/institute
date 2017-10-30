@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Modules\Subjects\Http\Requests\CreateSubjectRequest;
 use Modules\Subjects\Http\Requests\UpdateSubjectRequest;
 use Modules\Subjects\Contracts\SubjectsRepositoryContract as SubjectsRepository;
+use Modules\Subjects\Entities\Eloquent\Subject;
 use View;
 
 class SubjectsController extends Controller
@@ -97,5 +98,17 @@ class SubjectsController extends Controller
     {
         $this->subjectRepository->delete($request::get('id'));
         return 'Subject Has Been Deleted Successfully !!';
+    }
+
+    /**
+     * Return the instructors for a specific subject.
+     * @param  Request $request
+     * @return Response
+     */
+    public function getInstructors(Request $request)
+    {
+        return view('subjects::option',[
+            'instructors' => Subject::find($request->get('subject_id'))->instructors
+        ]);
     }
 }
