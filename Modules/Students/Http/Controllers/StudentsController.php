@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Modules\Students\Http\Requests\CreateStudentRequest;
 use Modules\Students\Http\Requests\UpdateStudentRequest;
 use Modules\Students\Contracts\StudentsRepositoryContract as StudentsRepository;
+use Modules\Classes\Entities\Eloquent\Classes;
 use View;
 
 class StudentsController extends Controller
@@ -39,6 +40,7 @@ class StudentsController extends Controller
     public function create()
     {
         return View::make('students::edit', [
+            'classes' => Classes::all(),
             'result' => null
         ]);
     }
@@ -71,7 +73,8 @@ class StudentsController extends Controller
      */
     public function edit(Request $request)
     {
-        return view('student::edit',[
+        return view('students::edit',[
+            'classes' => Classes::all(),
             'result' => $this->studentRepository->find($request->get('id'))
         ]);
     }

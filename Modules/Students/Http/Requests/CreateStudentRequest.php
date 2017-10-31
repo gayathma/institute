@@ -24,8 +24,12 @@ class CreateStudentRequest extends Request
     public function rules()
     {
         return [
-            'first_name' => 'required|unique:student,first_name',
-            'last_name' => 'required'
+            'registration_no' => 'required|unique:student,registration_no',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'address' => 'required',
+            'gender' => 'required',
+            'phone' => 'required'
         ];
     }
 }

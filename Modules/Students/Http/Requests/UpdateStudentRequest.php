@@ -30,7 +30,7 @@ class UpdateStudentRequest extends Request
         
 
         return array_merge($rules->rules(), [
-                'first_name' => 'required|unique:student,first_name,' . $studentRepository->find(HttpRequest::get('id'))->id
+                'registration_no' => 'required|unique:student,registration_no,' . $studentRepository->find(HttpRequest::get('id'))->id
 
             ]);
 

@@ -85,7 +85,7 @@
             <div class="row">
                 <div class="col-md-2 sidebar">
                   <ul class="nav nav-sidebar">
-                    <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="/">Overview <span class="sr-only">(current)</span></a></li>
                     <li><a href="/subjects">Subjects</a></li>
                     <li><a href="/instructors">Instructors</a></li>
                     <li><a href="/classes">Classes</a></li>
