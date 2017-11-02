@@ -96,7 +96,7 @@ class SubjectsController extends Controller
      */
     public function destroy(Request $request)
     {
-        $this->subjectRepository->delete($request::get('id'));
+        $this->subjectRepository->delete($request->get('id'));
         return 'Subject Has Been Deleted Successfully !!';
     }
 

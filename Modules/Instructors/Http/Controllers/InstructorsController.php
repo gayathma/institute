@@ -101,7 +101,7 @@ class InstructorsController extends Controller
      */
     public function destroy(Request $request)
     {
-        $this->instructorsRepository->delete($request::get('id'));
+        $this->instructorsRepository->delete($request->get('id'));
         return 'Instructor Has Been Deleted Successfully !!';
     }
 }

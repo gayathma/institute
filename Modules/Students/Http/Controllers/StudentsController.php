@@ -98,7 +98,7 @@ class StudentsController extends Controller
      */
     public function destroy(Request $request)
     {
-        $this->studentRepository->delete($request::get('id'));
+        $this->studentRepository->delete($request->get('id'));
         return 'Student Has Been Deleted Successfully !!';
     }
 }

@@ -7,4 +7,5 @@ Route::group(['middleware' => 'web', 'prefix' => 'classes', 'namespace' => 'Modu
     Route::post('/new', 'ClassesController@store');
     Route::get('/edit', 'ClassesController@edit');
     Route::post('/edit', 'ClassesController@update');
+    Route::get('/delete', 'ClassesController@destroy');
 });

@@ -95,7 +95,7 @@ class ClassesController extends Controller
      */
     public function destroy(Request $request)
     {
-        $this->classRepository->delete($request::get('id'));
+        $this->classRepository->delete($request->get('id'));
         return 'Class Has Been Deleted Successfully !!';
     }
 }

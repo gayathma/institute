@@ -7,5 +7,6 @@ Route::group(['middleware' => 'web', 'prefix' => 'subjects', 'namespace' => 'Mod
 	Route::post('/new', 'SubjectsController@store');
 	Route::get('/edit', 'SubjectsController@edit');
 	Route::post('/edit', 'SubjectsController@update');
+	Route::get('/delete', 'SubjectsController@destroy');
 	Route::get('/instructors', 'SubjectsController@getInstructors');
 });

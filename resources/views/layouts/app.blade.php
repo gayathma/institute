@@ -18,7 +18,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/js/parsley.js"></script>
     <script type="text/javascript" src="/js/jgrowl.js"></script>
     <script src="/js/custom.js"></script>
@@ -84,13 +83,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-2 sidebar">
-                  <ul class="nav nav-sidebar">
-                    <li class="active"><a href="/">Overview <span class="sr-only">(current)</span></a></li>
-                    <li><a href="/subjects">Subjects</a></li>
-                    <li><a href="/instructors">Instructors</a></li>
-                    <li><a href="/classes">Classes</a></li>
-                    <li><a href="/students">Students</a></li>
+                  <ul class="nav flex-column">
+                    <li class="nav-item"><a class="nav-link active" href="/">Overview <span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/subjects">Subjects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/instructors">Instructors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/classes">Classes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/students">Students</a></li>
                   </ul>
+                  <ul class="nav flex-column">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/subjects">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
                 </div>
 
                 <div class="col-md-10">

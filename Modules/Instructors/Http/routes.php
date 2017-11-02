@@ -7,4 +7,5 @@ Route::group(['middleware' => 'web', 'prefix' => 'instructors', 'namespace' => '
     Route::post('/new', 'InstructorsController@store');
     Route::get('/edit', 'InstructorsController@edit');
     Route::post('/edit', 'InstructorsController@update');
+    Route::get('/delete', 'InstructorsController@destroy');
 });

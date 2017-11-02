@@ -58,4 +58,54 @@
 		</div>
 	</div>
 </div>
+
+<div id="deleteModal" class="modal  bs-example-modal-sm" tabindex="1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Delete Instructor</h4>
+			</div>
+			<div class="modal-body">
+				<p>Are you sure you want to delete the instructor?....</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" id="btnDelete" class="btn btn-danger">
+					<i class="fa fa-trash-o"></i><span class="btntitle">Delete</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+    $('.confirm-delete').on('click', function(e) {
+        e.preventDefault();
+
+        var id = $(this).data('id');
+        $('#deleteModal').data('id', id).modal('show');
+    });
+
+    $(document).on("click","#btnDelete",function() {
+        var id = $('#deleteModal').data('id');
+        $.ajax({
+            url: '/students/delete',
+            data: {
+                id : id
+            },
+            type: 'get',
+            success: function(response) {
+                $('#deleteModal').modal('hide');
+                $('[data-id='+id+']').parents('tr').remove();
+                message('success', response)
+            },
+            error: function(xhr, status, error) {
+
+                message('error', xhr);
+            }
+        });
+    });
+
+</script>
 @endsection
