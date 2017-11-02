@@ -61,7 +61,7 @@ class ClassesDatabaseSeeder extends Seeder
                     'code' => 'I00'.$i,
                     'first_name' => $this->faker->firstName,
                     'last_name' => $this->faker->lastName,
-                    'marital_status' => 'Married',
+                    'marital_status' => 'married',
                     'gender' => 'Male',
                     'address' => $this->faker->word,
                     'phone' => '0776548098',
