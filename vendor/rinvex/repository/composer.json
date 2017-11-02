@@ -1,0 +1,64 @@
+{
+    "name": "rinvex/repository",
+    "description": "Rinvex Repository is a simple, intuitive, and smart implementation of Active Repository with extremely flexible & granular caching system for Laravel, used to abstract the data layer, making applications more flexible to maintain.",
+    "keywords": [
+        "rinvex",
+        "laravel",
+        "contract",
+        "interface",
+        "repository",
+        "intuitive",
+        "eloquent",
+        "granular",
+        "pattern",
+        "cache"
+    ],
+    "license": "MIT",
+    "homepage": "https://rinvex.com/marketplace/rinvex-repository/",
+    "support": {
+        "email": "help@rinvex.com",
+        "issues": "https://github.com/rinvex/repository/issues",
+        "source": "https://github.com/rinvex/repository",
+        "docs": "https://github.com/rinvex/repository/blob/master/README.md"
+    },
+    "authors": [
+        {
+            "name": "Rinvex LLC",
+            "homepage": "https://rinvex.com",
+            "email": "help@rinvex.com"
+        },
+        {
+            "name": "Abdelrahman Omran",
+            "homepage": "https://omranic.com",
+            "email": "me@omranic.com",
+            "role": "Project Lead"
+        },
+        {
+            "name": "The Generous PHP Community",
+            "homepage": "https://github.com/rinvex/repository/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/events": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
+        "illuminate/support": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
+        "illuminate/database": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
+        "illuminate/container": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
+        "illuminate/contracts": "~5.1.0|~5.2.0|~5.3.0|~5.4.0"
+    },
+    "suggest": {
+        "illuminate/pagination": "Required to paginate the result set."
+    },
+    "autoload": {
+        "psr-4": {
+            "Rinvex\\Repository\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
