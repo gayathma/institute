@@ -26,11 +26,20 @@
 
 ### Features ###
 
+* User Registration, Login and Forgot Password features are implemented.
 * The application should allow a user to create, edit, or delete subjects, classes, instructors and students.
 * User can allocate subjects and instructors for a class. Also can assign a student for a class.
 * Custom error pages 403, 404 and 503
 
-![Alt text](/screenshots/sc1.png?raw=true "Home Page")
+![Alt text](/screenshots/1.png?raw=true "Subjects Page")
+
+![Alt text](/screenshots/2.png?raw=true "Instructor Page")
+
+![Alt text](/screenshots/3.png?raw=true "Classes Page")
+
+![Alt text](/screenshots/4.png?raw=true "Instructor Create Page")
+
+![Alt text](/screenshots/5.png?raw=true "Students Page")
 
 
 ## License
