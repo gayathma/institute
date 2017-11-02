@@ -83,27 +83,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-2 sidebar">
-                  <ul class="nav flex-column">
-                    <li class="nav-item"><a class="nav-link active" href="/">Overview <span class="sr-only">(current)</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="/subjects">Subjects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/instructors">Instructors</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/classes">Classes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/students">Students</a></li>
+                  <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation" id="subjects"><a  href="/subjects">Subjects</a></li>
+                    <li role="presentation" id="instructors"><a  href="/instructors">Instructors</a></li>
+                    <li role="presentation" id="classes"><a  href="/classes">Classes</a></li>
+                    <li role="presentation" id="students"><a  href="/students">Students</a></li>
                   </ul>
-                  <ul class="nav flex-column">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/subjects">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#">Disabled</a>
-  </li>
-</ul>
+
                 </div>
 
                 <div class="col-md-10">
@@ -112,7 +98,17 @@
             </div>
         </div>
     </div>
-
+     <script>
+        $(document).ready(function() {
+            var url = window.location; 
+            var element = $('ul.nav-pills a').filter(function() {
+                return this.href == url || url.href.indexOf(this.href) == 0; 
+            }).parent().addClass('active');
+            if (element.is('li')) { 
+                 element.addClass('active').parent().parent('li').addClass('active')
+             }
+        });
+    </script>
     
 </body>
 </html>
