@@ -18,7 +18,8 @@
 * copy *.env.example* to *.env*
 * create database `institute` using mysql 
 * update `DB_DATABASE, DB_USERNAME, DB_PASSWORD` values in .env file
-* type `php artisan migrate` the user tables
+* this application require php 7.0 or higher version.
+* type `php artisan migrate` to migrate the user tables
 * type `php artisan module:migrate` to migrate the module tables
 * type `php artisan module:seed` to seed the dummy data
 * type `php artisan serve` with the given url you can access the application in the browser
